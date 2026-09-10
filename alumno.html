@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro de acceso — Centro de Cómputo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="alumno.css">
+</head>
+<body>
+
+  <header>
+    <span class="facultad">Facultad — FACISO</span>
+    <span class="sala">Centro de Cómputo</span>
+  </header>
+
+  <h1>Registra tu acceso</h1>
+  <p class="subtitulo">Ingresa tu número de cuenta para registrar tu entrada a la sala</p>
+
+  <main>
+    <div class="panel">
+
+      <!--
+        Esta es la única pantalla que verán los alumnos.
+        No incluye enlaces ni navegación hacia el panel de administración:
+        así se cumple el requisito de "sin acceso al sistema principal".
+
+        El formulario está listo para conectarse a un backend (PHP, Flask, etc.)
+        que reciba el número de cuenta por método POST.
+      -->
+      <form class="columna-entrada" action="/registrar-acceso" method="post" autocomplete="off">
+        <div>
+          <label class="etiqueta" for="numero-cuenta">Número de cuenta</label>
+          <input
+            class="pantalla-numero"
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            id="numero-cuenta"
+            name="numero_cuenta"
+            placeholder="0 0 0 0 0 0 0 0"
+            maxlength="6"
+            autofocus
+          >
+        </div>
+
+        <p class="instruccion">
+          Escribe tu número de cuenta con el teclado y verifica que sea correcto
+          antes de presionar «Registrar entrada».
+        </p>
+
+        <div class="acciones-entrada">
+          <button type="reset" class="boton boton-secundario">Borrar</button>
+          <button type="submit" class="boton boton-primario">Registrar entrada</button>
+        </div>
+
+        <p class="aviso">
+          Este equipo solo captura tu número de cuenta. No se solicita contraseña
+          ni ningún otro dato personal.
+        </p>
+      </form>
+
+    </div>
+  </main>
+
+  <footer>
+    Uso exclusivo para alumnos · Centro de Cómputo
+  </footer>
+
+</body>
+</html>
