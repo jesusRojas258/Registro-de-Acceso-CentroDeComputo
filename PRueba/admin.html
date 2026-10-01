@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel de administración — Centro de Cómputo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <div class="barra">
+    <span class="marca">Centro de Cómputo · Administración</span>
+    <span class="rol">Acceso restringido</span>
+  </div>
+
+  <!--
+    ============================================================
+    VISTA 1: Inicio de sesión del administrador
+    Cuando conecten un backend, este formulario deberá enviarse
+    por POST a la ruta de autenticación y validar usuario/contraseña
+    contra la base de datos de administradores (nunca la de alumnos).
+    ============================================================
+  -->
+  <section class="vista-login" id="login">
+    <div class="tarjeta-login">
+      <h1>Iniciar sesión</h1>
+      <p>Acceso exclusivo para personal del Centro de Cómputo</p>
+
+      <form action="/admin/login" method="post" autocomplete="off">
+        <div class="campo">
+          <label for="usuario">Usuario</label>
+          <input type="text" id="usuario" name="usuario" placeholder="usuario.administrador">
+        </div>
+        <div class="campo">
+          <label for="contrasena">Contraseña</label>
+          <input type="password" id="contrasena" name="contrasena" placeholder="••••••••">
+        </div>
+        <button type="submit" class="boton-login">Entrar al panel</button>
+      </form>
+
+      <p class="nota-login">Si olvidaste tu contraseña, contacta al coordinador de la sala.</p>
+    </div>
+  </section>
+
+  <!--
+    ============================================================
+    VISTA 2: Panel (mockup con datos de ejemplo)
+    Está en la misma página solo para que vean la referencia visual;
+    lo normal es que viva en su propio archivo y se muestre
+    después de un inicio de sesión válido en el backend.
+    ============================================================
+  -->
+  <section class="vista-panel" id="panel">
+    <div class="encabezado-panel">
+      <h2>Accesos de hoy</h2>
+      <span class="fecha">Jueves 10 de septiembre, 2026</span>
+    </div>
+
+    <div class="tarjetas-resumen">
+      <div class="resumen">
+        <div class="valor">42</div>
+        <div class="etiqueta">Registros hoy</div>
+      </div>
+      <div class="resumen">
+        <div class="valor">17</div>
+        <div class="etiqueta">Alumnos dentro de la sala</div>
+      </div>
+      <div class="resumen">
+        <div class="valor">30</div>
+        <div class="etiqueta">Equipos disponibles</div>
+      </div>
+    </div>
+
+    <div class="tabla-contenedor">
+      <table>
+        <thead>
+          <tr>
+            <th>Número de cuenta</th>
+            <th>Hora de entrada</th>
+            <th>Hora de salida</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>21830045</td>
+            <td>08:14</td>
+            <td>—</td>
+            <td><span class="estado estado-dentro">Dentro de la sala</span></td>
+          </tr>
+          <tr>
+            <td>22040112</td>
+            <td>08:20</td>
+            <td>09:05</td>
+            <td><span class="estado estado-fuera">Salió</span></td>
+          </tr>
+          <tr>
+            <td>21750098</td>
+            <td>08:47</td>
+            <td>—</td>
+            <td><span class="estado estado-dentro">Dentro de la sala</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</body>
+</html>
