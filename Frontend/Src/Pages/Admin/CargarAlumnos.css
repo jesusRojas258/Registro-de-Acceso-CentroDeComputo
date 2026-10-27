@@ -1,0 +1,209 @@
+.admin {
+  width: min(100%, 64rem);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.admin__encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin__lugar {
+  margin: 0 0 0.25rem;
+  color: var(--apoyo);
+}
+
+.admin__titulo {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  line-height: 1.15;
+}
+
+.admin__enlace {
+  color: var(--acento);
+  font-weight: 600;
+}
+
+.admin__seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.admin__seccion h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.admin__ayuda {
+  margin: 0;
+  color: var(--apoyo);
+}
+
+.admin__archivo {
+  max-width: 100%;
+  font: inherit;
+}
+
+.admin__archivo::file-selector-button {
+  margin-right: 1rem;
+  padding: 0.7rem 1.25rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--tinta);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin__archivo::file-selector-button:hover {
+  background: var(--acento);
+}
+
+.admin__ajustes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: flex-end;
+}
+
+.admin__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.admin__campo select {
+  min-width: 15rem;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--tinta);
+  border-radius: 0.5rem;
+  background: #fff;
+  color: var(--tinta);
+  font: inherit;
+  font-weight: 400;
+}
+
+.admin__check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin__check input {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--acento);
+}
+
+.admin__resumen {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.admin__tabla-contenedor {
+  width: 100%;
+  max-height: 24rem;
+  overflow: auto;
+  border: 1px solid #c5d0dc;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.admin__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin__tabla th,
+.admin__tabla td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid #e1e8ef;
+}
+
+.admin__tabla th {
+  position: sticky;
+  top: 0;
+  background: #f3f6f9;
+}
+
+.admin__cuenta {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.admin__estado {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.admin__estado--ok {
+  background: #dff1e5;
+  color: #14602f;
+}
+
+.admin__estado--invalida {
+  background: #f8dedc;
+  color: #9a1f18;
+}
+
+.admin__estado--repetida {
+  background: #fdf0d2;
+  color: #7a4f00;
+}
+
+.admin__boton {
+  padding: 0.9rem 2rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--tinta);
+  color: #fff;
+  font: inherit;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin__boton:hover:not(:disabled) {
+  background: var(--acento);
+}
+
+.admin__boton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin__mensaje {
+  margin: 0;
+  font-weight: 600;
+}
+
+.admin__mensaje--ok {
+  color: var(--acento);
+}
+
+.admin__mensaje--error {
+  color: var(--error);
+}
+
+.admin__boton:focus-visible,
+.admin__enlace:focus-visible,
+.admin__campo select:focus-visible,
+.admin__archivo:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 3px;
+}
