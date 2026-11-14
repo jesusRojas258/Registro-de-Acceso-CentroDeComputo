@@ -3,6 +3,7 @@ import Acceso from './Pages/Acceso'
 import AdminLayout from './Components/AdminLayout'
 import Inicio from './Pages/Admin/Inicio'
 import CargarAlumnos from './Pages/Admin/CargarAlumnos'
+import RegistrarAlumno from './Pages/Admin/RegistrarAlumno'
 import Accesos from './Pages/Admin/Accesos'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Inicio />} />
           <Route path="alumnos" element={<CargarAlumnos />} />
+          <Route path="registrar" element={<RegistrarAlumno />} />
           <Route path="accesos" element={<Accesos />} />
         </Route>
 

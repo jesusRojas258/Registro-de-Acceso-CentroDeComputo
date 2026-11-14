@@ -1,11 +1,4 @@
-// Alumnos de prueba. Solo esta cuenta puede entrar; cualquier otra verá la pantalla roja.
-const ALUMNOS_DEMO = [
-  {
-    cuenta: '1234567-8',
-    nombre: 'Alumno de Prueba',
-    carrera: 'Ingeniería en Sistemas Computacionales',
-  },
-]
+import { buscarAlumno } from './Alumnos'
 
 // Devuelve los datos del alumno si tiene acceso, o null si no.
 // TODO: reemplazar por la llamada real al backend, por ejemplo:
@@ -17,7 +10,7 @@ const ALUMNOS_DEMO = [
 //   const datos = await res.json()
 //   return datos.ingreso ? datos.alumno : null
 export async function verificarAcceso(cuenta) {
-  return ALUMNOS_DEMO.find((alumno) => alumno.cuenta === cuenta) ?? null
+  return buscarAlumno(cuenta)
 }
 
 // TODO: reemplazar por la llamada real al backend, por ejemplo:

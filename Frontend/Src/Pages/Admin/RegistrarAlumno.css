@@ -1,0 +1,126 @@
+.registro__form {
+  width: min(100%, 32rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.registro__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.registro__entrada {
+  padding: 0.7rem 0.85rem;
+  border: 2px solid var(--tinta);
+  border-radius: 0.5rem;
+  background: #fff;
+  color: var(--tinta);
+  font: inherit;
+  font-weight: 400;
+}
+
+.registro__entrada--cuenta {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+.registro__entrada::placeholder {
+  color: #b4c0ce;
+}
+
+.registro__entrada:focus-visible,
+.registro__boton:focus-visible,
+.registro__quitar:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 3px;
+}
+
+.registro__boton {
+  align-self: flex-start;
+  padding: 0.9rem 2rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--tinta);
+  color: #fff;
+  font: inherit;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.registro__boton:hover {
+  background: var(--acento);
+}
+
+.registro__mensaje {
+  min-height: 1.5em;
+  margin: 0;
+  font-weight: 600;
+}
+
+.registro__mensaje--ok {
+  color: var(--acento);
+}
+
+.registro__mensaje--error {
+  color: var(--error);
+}
+
+.registro__subtitulo {
+  margin: 1.5rem 0 0;
+  font-size: 1.25rem;
+}
+
+.registro__tabla-contenedor {
+  width: 100%;
+  max-height: 24rem;
+  overflow: auto;
+  border: 1px solid #c5d0dc;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.registro__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.registro__tabla th,
+.registro__tabla td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid #e1e8ef;
+}
+
+.registro__tabla th {
+  position: sticky;
+  top: 0;
+  background: #f3f6f9;
+}
+
+.registro__cuenta {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.registro__quitar {
+  padding: 0.35rem 0.9rem;
+  border: 2px solid var(--error);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--error);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.registro__quitar:hover {
+  background: var(--error);
+  color: #fff;
+}
