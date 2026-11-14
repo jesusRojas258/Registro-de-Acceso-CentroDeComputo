@@ -14,9 +14,9 @@ function Acceso() {
     manejarEnvio,
   } = useAcceso()
 
-  // Pantalla verde o roja
+    // Pantalla verde o roja
   if (resultado) {
-    const { ingreso, cuenta } = resultado
+    const { ingreso, cuenta, alumno } = resultado
     return (
       <main
         className={`resultado ${ingreso ? 'resultado--ok' : 'resultado--no'}`}
@@ -42,12 +42,24 @@ function Acceso() {
         <h1 className="resultado__titulo">
           {ingreso ? 'Acceso permitido' : 'Acceso denegado'}
         </h1>
-        <p className="resultado__cuenta">Cuenta {cuenta}</p>
-        <p className="resultado__texto">
-          {ingreso
-            ? 'Puedes pasar al centro de cómputo.'
-            : 'Esta cuenta no tiene acceso. Acércate con el encargado.'}
-        </p>
+
+        {ingreso ? (
+          <>
+            <p className="resultado__nombre">{alumno.nombre}</p>
+            <p className="resultado__carrera">{alumno.carrera}</p>
+            <p className="resultado__cuenta">Cuenta {cuenta}</p>
+            <p className="resultado__texto">
+              Entrada: {alumno.fecha} a las {alumno.hora}
+            </p>
+          </>
+        ) : (
+          <>
+            <p className="resultado__cuenta">Cuenta {cuenta}</p>
+            <p className="resultado__texto">
+              Esta cuenta no tiene acceso. Acércate con el encargado.
+            </p>
+          </>
+        )}
 
         <div className="resultado__barra" aria-hidden="true">
           <div

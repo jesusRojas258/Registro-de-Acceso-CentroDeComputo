@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { TOTAL_DIGITOS, formatear } from '../Utils/Cuenta'
+import { formatearFecha, formatearHora } from '../Utils/Fechas'
 import { verificarAcceso } from '../Services/Api'
+import { guardarAcceso } from '../Services/Historial'
 
 // Segundos que se muestra la pantalla verde/roja antes de volver al inicio.
 export const SEGUNDOS_RESULTADO = 5
@@ -9,7 +11,8 @@ export function useAcceso() {
   const [digitos, setDigitos] = useState('')
   const [estado, setEstado] = useState({ tipo: 'inicial', mensaje: '' })
   const [verificando, setVerificando] = useState(false)
-  const [resultado, setResultado] = useState(null) // { ingreso: boolean, cuenta: string }
+  // { ingreso: boolean, cuenta: string, alumno: { nombre, carrera, fecha, hora } | null }
+  const [resultado, setResultado] = useState(null)
   const inputRef = useRef(null)
 
   const completo = digitos.length === TOTAL_DIGITOS
@@ -46,14 +49,30 @@ export function useAcceso() {
 
     const cuenta = formatear(digitos)
     setVerificando(true)
-    let ingreso = false
+    let alumno = null
     try {
-      ingreso = await verificarAcceso(cuenta)
+      alumno = await verificarAcceso(cuenta)
     } catch {
-      ingreso = false
+      alumno = null
     }
     setVerificando(false)
-    setResultado({ ingreso, cuenta })
+
+    if (!alumno) {
+      setResultado({ ingreso: false, cuenta, alumno: null })
+      return
+    }
+
+    const registro = guardarAcceso(alumno)
+    setResultado({
+      ingreso: true,
+      cuenta,
+      alumno: {
+        nombre: alumno.nombre,
+        carrera: alumno.carrera,
+        fecha: formatearFecha(registro.fechaHora),
+        hora: formatearHora(registro.fechaHora),
+      },
+    })
   }
 
   return {

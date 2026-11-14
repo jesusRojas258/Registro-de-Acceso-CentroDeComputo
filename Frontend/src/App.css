@@ -194,4 +194,26 @@
 .acceso__boton:disabled {
   opacity: 0.6;
   cursor: wait;
+}/* Datos del alumno en la pantalla verde */
+.resultado__nombre {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.75rem, 6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.resultado__carrera {
+  margin: 0;
+  font-size: clamp(1.125rem, 3.5vw, 1.75rem);
+}/* Datos del alumno en la pantalla verde */
+.resultado__nombre {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.75rem, 6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.resultado__carrera {
+  margin: 0;
+  font-size: clamp(1.125rem, 3.5vw, 1.75rem);
 }
