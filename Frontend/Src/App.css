@@ -1,0 +1,209 @@
+.acceso {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(2rem, 6vh, 3.5rem);
+  width: min(100%, 36rem);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 3rem);
+}
+
+.acceso__lugar {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  color: var(--apoyo);
+}
+
+.acceso__titulo {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.acceso__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.acceso__etiqueta {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* El campo es lo único que se luce: números grandes sobre una línea gruesa. */
+.acceso__campo {
+  width: 100%;
+  padding: 0.25rem 0 0.5rem;
+  border: 0;
+  border-bottom: 4px solid var(--tinta);
+  border-radius: 0;
+  background: transparent;
+  color: var(--tinta);
+  font: inherit;
+  font-size: clamp(2.25rem, 11vw, 4rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  transition: border-color 0.15s;
+}
+
+.acceso__campo::placeholder {
+  color: #b4c0ce;
+}
+
+.acceso__campo:focus-visible {
+  outline: none;
+  border-bottom-color: var(--acento);
+}
+
+.acceso__campo--completo {
+  border-bottom-color: var(--acento);
+}
+
+.acceso__campo--error {
+  border-bottom-color: var(--error);
+}
+
+.acceso__ayuda {
+  margin: 0.75rem 0 1.75rem;
+  color: var(--apoyo);
+}
+
+.acceso__boton {
+  align-self: flex-start;
+  padding: 0.9rem 2rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--tinta);
+  color: #fff;
+  font: inherit;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.acceso__boton:hover {
+  background: var(--acento);
+}
+
+.acceso__boton:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 3px;
+}
+
+.acceso__estado {
+  min-height: 1.5em;
+  margin: 1.25rem 0 0;
+  font-weight: 600;
+}
+
+.acceso__estado--ok {
+  color: var(--acento);
+}
+
+.acceso__estado--error {
+  color: var(--error);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acceso__campo,
+  .acceso__boton {
+    transition: none;
+  }
+}
+/* ---------- Pantalla de resultado (verde / roja) ---------- */
+.resultado {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.resultado--ok {
+  background: #167a3b;
+}
+
+.resultado--no {
+  background: #b3261e;
+}
+
+.resultado__icono {
+  width: clamp(7rem, 22vw, 11rem);
+  height: clamp(7rem, 22vw, 11rem);
+  margin-bottom: 0.5rem;
+}
+
+.resultado__titulo {
+  margin: 0;
+  font-size: clamp(2.5rem, 9vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.resultado__cuenta {
+  margin: 0;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+.resultado__texto {
+  margin: 0.5rem 0 0;
+  max-width: 28rem;
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+}
+
+/* Barra que se vacía durante los 5 segundos */
+.resultado__barra {
+  width: min(100%, 24rem);
+  height: 0.5rem;
+  margin-top: 2.5rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.3);
+  overflow: hidden;
+}
+
+.resultado__barra-progreso {
+  height: 100%;
+  background: #fff;
+  transform-origin: left;
+  animation: vaciar linear forwards;
+}
+
+@keyframes vaciar {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Botón deshabilitado mientras se verifica */
+.acceso__boton:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+/* Datos del alumno en la pantalla verde */
+.resultado__nombre {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.75rem, 6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.resultado__carrera {
+  margin: 0;
+  font-size: clamp(1.125rem, 3.5vw, 1.75rem);
+}/* Datos del alumno en la pantalla verde */
